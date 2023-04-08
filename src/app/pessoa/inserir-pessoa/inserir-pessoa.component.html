@@ -12,7 +12,7 @@
     <div class="form-group">
       <label for="dataNascimento">Data de Nascimento</label>
       <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" [(ngModel)]="pessoa.dataNascimento" #dataNascimento="ngModel" required>
-      <div *ngIf="dataNascimento.errors && (dataNascimento.dirty || idade.touched)" class="alert alert-danger">
+      <div *ngIf="dataNascimento.errors && (dataNascimento.dirty || dataNascimento.touched)" class="alert alert-danger">
         <div [hidden]="!dataNascimento.errors?.['required']">Digite a data de nascimento da pessoa</div>
       </div>
     </div>
