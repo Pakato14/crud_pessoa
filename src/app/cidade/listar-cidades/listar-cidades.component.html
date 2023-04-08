@@ -15,10 +15,10 @@
             <td> {{ cidade.nome }} </td>
             <td> {{ cidade.estado }} </td>
             <td class="text-center" style="width: 300px">
-                <a [routerLink]="['/pessoas/editar', cidade.id]" title="EditarCidade" alt="Editar Cidade" class="btn btn-xs btn-info">
+                <a [routerLink]="['/cidades/editar', cidade.id]" title="EditarCidade" alt="Editar Cidade" class="btn btn-xs btn-info">
                     <i class="fa fa-edit" aria-hidden="true"></i> Editar
                 </a>
-                <a title="RemoverCidade" alt="Remover Cidade" class="btn btn-xs btn-danger">
+                <a title="RemoverCidade" alt="Remover Cidade" class="btn btn-xs btn-danger" (click)="remover($event, cidade)">
                     <i class="fa fa-times" aria-hidden="true"></i> Remover
                 </a>
             </td>

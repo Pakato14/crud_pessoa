@@ -21,4 +21,12 @@ export class ListarCidadesComponent implements OnInit {
     return this.cidadeService.listarCidade();
   }
 
+  remover($event: any, cidades: Cidade): void {
+    $event.preventDefault();
+    if(confirm(`Deseja realmente remover a cidade ${cidades.nome}?`)){
+      this.cidadeService.remover(cidades.id!);
+      this.cidades = this.listarCidades()
+    }
+  }
+
 }
