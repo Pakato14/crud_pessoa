@@ -1,6 +1,10 @@
+import { LoginRoutes } from './auth/auth-routing.module';
 import { EditarCidadesComponent } from './cidade/editar-cidades/editar-cidades.component';
 import { InserirCidadesComponent } from './cidade/inserir-cidades/inserir-cidades.component';
 import { ListarCidadesComponent } from './cidade/listar-cidades/listar-cidades.component';
+import { EditarEnderecoComponent } from './endereco/editar-endereco/editar-endereco.component';
+import { InserirEnderecoComponent } from './endereco/inserir-endereco/inserir-endereco.component';
+import { ListarEnderecoComponent } from './endereco/listar-endereco/listar-endereco.component';
 import { EditarPessoaComponent } from './pessoa/editar-pessoa/editar-pessoa.component';
 import { InserirPessoaComponent } from './pessoa/inserir-pessoa/inserir-pessoa.component';
 import { ListarPessoaComponent } from './pessoa/listar-pessoa/listar-pessoa.component';
@@ -8,17 +12,24 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'pessoas/listar', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'pessoas', redirectTo: 'pessoas/listar' },
   { path: 'pessoas/listar', component: ListarPessoaComponent },
   { path: 'pessoas/novo', component: InserirPessoaComponent },
   { path: 'pessoas/editar/:id', component: EditarPessoaComponent },
 
  // { path: 'cidades', redirectTo: 'cidades/listar' },
-  { path: 'cidades/listar', component: ListarCidadesComponent},
+  { path: 'cidades/listar', component: ListarCidadesComponent },
   { path: 'cidades/novo', component: InserirCidadesComponent },  
   { path: 'cidades/editar/:id', component: EditarCidadesComponent },
+  
+  //Endereço
+  { path: 'endereco/listar', component: ListarEnderecoComponent },
+  { path: 'endereco/novo', component: InserirEnderecoComponent },  
+  { path: 'endereco/editar/:id', component: EditarEnderecoComponent },
 
+
+  ...LoginRoutes
 ];
 
 @NgModule({

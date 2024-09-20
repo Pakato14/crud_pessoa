@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { PessoaService } from './services/pessoa.service';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -6,6 +7,7 @@ import { ListarPessoaComponent } from './listar-pessoa/listar-pessoa.component';
 import { FormsModule } from '@angular/forms';
 import { InserirPessoaComponent } from './inserir-pessoa/inserir-pessoa.component';
 import { EditarPessoaComponent } from './editar-pessoa/editar-pessoa.component';
+import { ModalPessoaComponent } from './modal-pessoa/modal-pessoa.component';
 
 
 
@@ -13,12 +15,14 @@ import { EditarPessoaComponent } from './editar-pessoa/editar-pessoa.component';
   declarations: [
     ListarPessoaComponent,
     InserirPessoaComponent,
-    EditarPessoaComponent
+    EditarPessoaComponent,
+    ModalPessoaComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [
     PessoaService

@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Endereco } from 'src/app/shared/models/endereco.model';
+
+const LS_CHAVE: string = "endereco"
 
 @Injectable({
   providedIn: 'root'
@@ -6,4 +9,38 @@ import { Injectable } from '@angular/core';
 export class EnderecoService {
 
   constructor() { }
+
+  listarTodos(): Endereco[]{
+    const endereco = localStorage[LS_CHAVE];
+    return endereco ? JSON.parse(endereco) : []
+  }
+
+  inserir(endereco: Endereco): void {
+    const enderecos = this.listarTodos()
+    endereco.id = new Date().getTime()
+    enderecos.push(endereco)
+    localStorage[LS_CHAVE] = JSON.stringify(enderecos)
+  }
+
+  buscarPorID(id: number): Endereco | undefined{
+    const enderecos: Endereco[] = this.listarTodos()
+    return enderecos.find(endereco => endereco.id === id)
+  }
+
+  atualizar(endereco: Endereco): void {
+    const enderecos: Endereco[] = this.listarTodos()
+
+    enderecos.forEach((obj, index, objs) =>{
+      if(endereco.id === obj.id){
+        objs[index] = endereco
+      }
+    })
+    localStorage[LS_CHAVE] = JSON.stringify(enderecos)
+  }
+
+  remover(id: number): void{
+    let enderecos: Endereco[] = this.listarTodos()
+    enderecos = enderecos.filter(endereco => endereco.id !== id)
+    localStorage[LS_CHAVE] = JSON.stringify(enderecos)
+  }
 }

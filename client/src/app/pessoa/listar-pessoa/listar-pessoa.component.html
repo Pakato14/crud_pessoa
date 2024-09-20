@@ -13,7 +13,7 @@
     </tr>
     <tr *ngFor="let pessoa of pessoas">
       <td>{{ pessoa.nome }}</td>
-      <td>{{ pessoa.dataNascimento }}</td>
+      <td>{{ pessoa.dataNascimento | date :'dd/MM/yyyy' }}</td>
       <td>{{ pessoa.idade }}</td>
       <td class="text-center" style="width: 300px">
       <a [routerLink]="['/pessoas/editar', pessoa.id]" title="Editar" alt="Editar" class="btn btn-xs btn-info"><i class="fa fa-edit" aria-hidden="true"></i>Editar</a>
