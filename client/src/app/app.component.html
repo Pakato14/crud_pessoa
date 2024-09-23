@@ -10,10 +10,10 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" [routerLink]="['/pessoas/listar']">Pessoas</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="usuarioLogado.perfil ==='GERENTE'">
             <a class="nav-link" [routerLink]="['/cidades/listar']">Cidades</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="usuarioLogado.perfil ==='ADMIN' || usuarioLogado.perfil ==='GERENTE'">
             <a class="nav-link" [routerLink]="['/endereco/listar']">Endereços</a>
           </li>  
           <li class="nav-item dropdown">
@@ -22,11 +22,21 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" [routerLink]="['/pessoas/novo']" (click)="$event.preventDefault()">Pessoa</a></li>
-              <li><a class="dropdown-item" [routerLink]="['/cidades/novo']" (click)="$event.preventDefault()">Cidade</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/cidades/novo']" (click)="$event.preventDefault()" *ngIf="usuarioLogado.perfil ==='GERENTE'">Cidade</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" [routerLink]="['/endereco/novo']" (click)="$event.preventDefault()">Endereço</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/endereco/novo']" (click)="$event.preventDefault()" *ngIf="usuarioLogado.perfil ==='ADMIN' || usuarioLogado.perfil ==='GERENTE'">Endereço</a></li>
             </ul>
           </li>        
+        </ul>
+        <ul *ngIf="usuarioLogado" class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#" (click)="logout()">Logout</a>
+          </li>
+          <li class="nav-item">
+            <p class="navbar-text mb-0 text-white">
+              <i class="fa fa-user"></i>{{ usuarioLogado.nome }}
+            </p>
+          </li>
         </ul>
       </div>
     </div>

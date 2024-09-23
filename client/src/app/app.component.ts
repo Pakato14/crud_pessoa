@@ -1,4 +1,7 @@
+import { LoginService } from './auth/services/login.service';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Usuario } from './shared';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Cadastro de Pessoas';
+
+  constructor(
+    private router: Router,
+    private loginService: LoginService
+  ){}
+
+  get usuarioLogado(): Usuario {
+    return this.loginService.usuarioLogado;
+  }
+
+  logout(){
+    this.loginService.logout();
+    this.router.navigate(['/login']);
+  }
 }

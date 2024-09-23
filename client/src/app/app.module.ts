@@ -8,10 +8,12 @@ import { PessoaModule } from './pessoa/pessoa.module';
 import { CidadeModule } from './cidade/cidade.module';
 import { EnderecoModule } from './endereco/endereco.module';
 import { AuthModule } from './auth/auth.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent,   
+    AppComponent,
+    HomeComponent,   
   ],
   imports: [
     BrowserModule,

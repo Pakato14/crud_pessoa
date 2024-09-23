@@ -45,8 +45,9 @@ export class LoginComponent implements OnInit {
           this.loading = false;
           this.message = "Usuário ou senha inválidos.";
         }
-      })
+      });
     }
+    this.loading = false;
     
   }
 
