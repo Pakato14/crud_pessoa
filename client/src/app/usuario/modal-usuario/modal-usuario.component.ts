@@ -1,0 +1,17 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/shared';
+
+@Component({
+  selector: 'app-modal-usuario',
+  templateUrl: './modal-usuario.component.html',
+  styleUrls: ['./modal-usuario.component.css']
+})
+export class ModalUsuarioComponent implements OnInit {
+  @Input() usuario: Usuario = new Usuario();
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}

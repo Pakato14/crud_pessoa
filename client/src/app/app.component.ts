@@ -16,7 +16,7 @@ export class AppComponent {
     private loginService: LoginService
   ){}
 
-  get usuarioLogado(): Usuario {
+  get usuarioLogado(): Usuario | null{
     return this.loginService.usuarioLogado;
   }
 
